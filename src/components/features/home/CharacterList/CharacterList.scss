@@ -1,0 +1,7 @@
+@use '@/styles/variables' as vars;
+
+.results-count {
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: vars.$background-dark;
+}

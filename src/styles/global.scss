@@ -1,0 +1,47 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+// Global Reset
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Base Styles
+body {
+    font-family: vars.$font-primary;
+    background-color: vars.$background-color;
+    color: vars.$text-color;
+    line-height: 1.5;
+    font-size: vars.$font-size-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Utility Classes
+.container {
+    margin: 0 auto;
+    padding: 0 vars.$spacing-xxl;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+        padding: 0 vars.$spacing-md;
+    }
+}
+
+.header-title {
+    margin: 24px 0 16px;
+    font-size: 24px;
+    font-weight: vars.$font-weight-bold;
+}
+
+// Common Grid Layout
+.characters-grid {
+    @include mix.grid-layout(auto-fill, 170px);
+    margin-bottom: vars.$spacing-xl;
+
+    @include mix.respond-to(mobile) {
+        @include mix.grid-layout(auto-fill, 140px);
+        gap: vars.$spacing-sm;
+    }
+}

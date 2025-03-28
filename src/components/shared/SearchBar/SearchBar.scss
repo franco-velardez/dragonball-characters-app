@@ -1,0 +1,35 @@
+@use '@/styles/variables' as vars;
+
+.search-bar {
+    width: 100%;
+    margin: 24px 0 8px 0;
+    position: relative;
+
+    .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 33%;
+        transform: scale(1.25);
+        color: #6b7280;
+        pointer-events: none;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        background-color: vars.$background-color;
+        border-bottom: 1px solid vars.$background-dark;
+        font-size: 14px;
+        outline: none;
+        padding-left: 3.5%;
+
+        &:focus {
+            border-color: vars.$favorite-inactive;
+        }
+
+        @media (max-width: vars.$breakpoint-mobile) {
+            padding-left: 8.5%;
+        }
+    }
+}

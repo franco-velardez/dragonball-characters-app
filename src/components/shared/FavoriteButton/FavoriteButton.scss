@@ -1,0 +1,37 @@
+@use '@/styles/variables' as vars;
+
+.favorite-button {
+    font-size: clamp(20px, 3vw, 24px);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: vars.$favorite-inactive;
+    transition: color 0.2s;
+    display: flex;
+    transform: scale(0.75);
+
+    svg {
+        transition: all 0.3s ease;
+    }
+
+    &:hover svg {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.3));
+    }
+
+    &:active svg {
+        transform: scale(0.9);
+    }
+}
+
+.active {
+    color: vars.$primary-color;
+
+    &:hover svg {
+        filter: drop-shadow(0 0 4px vars.$primary-color);
+    }
+}
+
+.big-icon {
+    transform: scale(1);
+}

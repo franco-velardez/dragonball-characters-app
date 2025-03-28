@@ -1,0 +1,41 @@
+@use '@/styles/variables' as vars;
+
+.header {
+    background-color: vars.$background-dark;
+    padding: vars.$spacing-sm vars.$spacing-xxl;
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: vars.$breakpoint-mobile) {
+        padding: vars.$spacing-sm vars.$spacing-md;
+    }
+
+    .header-logo-button {
+        background: none;
+        border: none;
+
+        .header-logo {
+            width: 170px;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+
+    .header-right-icons {
+        display: flex;
+        flex-direction: row;
+
+        .favorites-count {
+            color: white;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    }
+}
