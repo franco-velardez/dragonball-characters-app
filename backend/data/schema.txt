@@ -1,0 +1,26 @@
+CREATE TABLE characters (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  image TEXT
+);
+
+CREATE TABLE character_transformations (
+  id SERIAL PRIMARY KEY,
+  character_id INTEGER REFERENCES characters(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  description TEXT,
+  ki TEXT,
+  image TEXT
+);
+
+CREATE TABLE public_favorites (
+  session_id TEXT NOT NULL,
+  character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  PRIMARY KEY (session_id, character_id)
+);
+
+-- Indexes for performance
+CREATE INDEX idx_favorites_session ON public_favorites(session_id);
+CREATE INDEX idx_favorites_character ON public_favorites(character_id);
